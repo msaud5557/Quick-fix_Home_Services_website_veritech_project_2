@@ -1,0 +1,83 @@
+
+{% extends 'app/dashbase.html' %}
+{% load static %}
+{% block title %}services{% endblock title %}
+{% block main-content %}
+
+
+
+ <!--main content start-->
+<section id="main-content">
+  <section class="wrapper">
+    
+    <div class="row">
+     <div class="col-lg-10 col-md-8 col-sm-8">
+       
+    <!-- ======= Services Section ======= -->
+   <!--me code-->  
+    <div class="row">
+     {% for i in services %}
+
+      <div class=" col-lg-4 col-md-6 col-sm-8 text-center  mb-4">
+       <a href="{% url 'service-detail' i.id%}" class="btn m-0 p-0">
+       <div class="item">
+          <img src="{{i.Service_image1.url}}" alt=" " height="250" width="225" class="">
+          <div class="fw-blod"><h1 class="" >{{i.name}}</h1></div>
+          <a href="{% url 'service-detail' i.id %}" class="btn"><div class="item">line of work<span class="fw-bold"><b> {{i.Employee}}</b></span><br><span class="fs-5">City:{{i.city}}</span></div></a>
+          <!-- <div class="fw-bold "><b>RS.{{i.discounted_price}}</b>/{{i.as_per}}</div> -->
+          <!-- <div class="fw-light text-decoration-line-through"><b>{{i.selling_price}}</b></small></div> -->
+
+          <div > {%if perms.ADMIN.%}
+            <a href="{% url 'updateservice' i.id%}" class="btn btn-warning btn-sm">Edit</a>
+            {%endif%}
+         
+          {%if perms.ADMIN %}
+           <form action="{% url 'delservice'  i.id%}" method="POST" class="d-inline">
+              {% csrf_token %}
+            <input  type="submit" value="Delete" class="btn btn-danger btn-sm">
+           </form>
+           
+          {%endif%}
+        </div>
+         
+          </div>
+        </a>
+         
+       </div>
+  
+    {% endfor %}
+   </div>
+
+
+    </div>
+
+    <div class="col-lg-2 col-md-2 col-sm-2 ">
+ 
+      <div class="list-group">
+        <a class="list-group-item list-group-item-action text-wrap" aria-current="true"  href="">FILTER</a>
+        <a class="list-group-item list-group-item-action text-wrap" aria-current="true"  href="{% url 'viewserviescustomerdash' %}">ALL Services</a>
+        
+        <a href="{% url 'viewserviescustomerdashf' 'Electrician' %}"class="list-group-item list-group-item-action text-wrap"aria-current="true" >Electrician</a>
+        
+        <a class="list-group-item list-group-item-action text-wrap" href="{% url 'viewserviescustomerdashf' 'Plumber' %}">Plumber</a>
+        
+        <a class="list-group-item list-group-item-action text-wrap" href="{% url 'viewserviescustomerdashf' 'Sweaper' %}">Sweaper</a>
+
+        <a class="list-group-item list-group-item-action text-wrap" href="{% url 'viewserviescustomerdashf' 'Carpenter' %}">Carpenter</a>
+       
+ 
+        
+       
+       
+ 
+       
+
+       <!--Side Bar for Mobile Vehicle Branding filter-->
+     </div>
+      </div>
+
+
+    </div>
+  </section>
+</section>
+{% endblock main-content %}

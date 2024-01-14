@@ -1,0 +1,68 @@
+{% extends 'app/dashbase.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% block main-content %}
+<section id="main-content">
+  <section class="wrapper">
+<div class="container">
+ <div class="row mt-5">
+  <div class="col-sm-6">
+    <h4>Order Summary</h4>
+    <hr>
+    {%for item in cart_item %}
+      <div class="card mb-2 text-capitalize">
+        <div class="card-body">
+          <h5>Service: {{item.service.name}}</h5>
+           <br>
+          <p class="fw-bold">Price:Not Deside at that time</p>
+          <small class="text-capitalize">The price of your Order will Deside Admin</small>
+          <br>
+          <P class="text-capitalize">Start Date of your Order will Deside Admin</P>
+          <hr>
+          <small class="text-capitalize">If you have any Query Contact it</small>
+        </div>
+      </div>
+     {%endfor%}
+     <p class="fw-bold"></p>
+    <small>Term and Condition: pleas learn comlete about the service?</small>
+  </div>
+  <div class="col-sm-4 offset-sm-1">
+    <h2 >{{request.user}}  Proflie</h2>
+    <small>Firstly Please Enter your Details <br>then you can put order any services.</small>
+    <hr>
+    <form action="/pymentdone">
+    {%for ad in add %}  
+      <div class="card text-capitalize">
+        <div class="card-body">
+          <img style="height: 300px; width:300px;" src="{{ad.customer_image1.url}}" class="rounded mx-auto d-block" alt="...">
+        <h5>{{ad.name}}</h5>
+        <p>{{ad.Address}},{{ad.city}},{{ad.country}}</p>
+        </div>
+      </div>
+        <div class="form-check mt-2 mb-5">
+          
+          <input class="form-check-input" type="radio" checked  name ="custid" id="custadd{{forloop.counter}}" value="{{ad.id}}">
+       
+          <label   class="form-check-label fw-bold" for="custadd{{forloop.counter}}">i Agree with term and services.</label>
+        
+        
+
+        </div>
+        
+        {%endfor%}
+        <div class="text-end">
+          {%for ad in add %}
+            {% if ad.name == request.user.username %}
+                  <button type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Continue</button>
+              {% else %}
+                 Please Enter Your Personal Detail
+                    {%endif%}
+                {%endfor%}
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</section>
+</section>
+{% endblock main-content %}

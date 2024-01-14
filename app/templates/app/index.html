@@ -1,0 +1,197 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block main-content %}
+
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center img-fluid"  style="background-image: url('/static/img/LOGOQF.png');background-repeat: no-repeat; padding: right 10px;  ;background-position:right;">
+    <div class="container" data-aos="zoom-out" data-aos-delay="100">
+  
+      <h1>Welcome to <span style="color:#12456a;">Quick-Fix</span>
+      </h1>
+      <h2>Household Service Provider</h2>
+  
+      
+      <div class="d-flex">
+        <a href="{% url 'services' %}" class="btn-get-started scrollto">Go to services</a>
+  
+        
+        <!-- <a href="" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a> -->
+      </div>
+    </div>
+</section><!-- End Hero -->
+
+
+
+
+
+<!-- ======= Testimonials Section ======= -->
+<section id="testimonials" class="testimonials  ">
+  <div class="container" data-aos="zoom-in">
+
+    <div class="owl-carousel testimonials-carousel">
+
+      <div class="testimonial-item">
+        <img src="{% static 'img/plum1.jpg' %}"  height="350px" width="300px" class="testimonial-img" alt="">
+       
+        <br>
+        <h5><b>Our Mission</b></h5>
+        <p>
+          
+          <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+          To achieve the highest possible standards in all that we do” Our priority and commitment is therefore to offer at all times, a world class service related to services.
+          <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+        </p>
+      </div>
+
+      <div class="testimonial-item">
+        <img src="{% static 'img/plum2.jpg' %}" height="350px" width="300px" class="testimonial-img" alt="">
+      
+        <br>
+        <h5><b>Our Vision</b></h5>
+        <p>
+          
+          <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+          To be among the top 10 most favorite services company across the Pakistan with high creativity, performance and customer responsiveness.
+          <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+        </p>
+      </div>
+
+      
+
+    
+
+    </div>
+
+  </div>
+</section><!-- End Testimonials Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- End Hero -->
+
+
+    
+   
+
+   
+
+
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>Contact</h2>
+            <h3><span>Contact Us</span></h3>
+            <p></p>
+          </div>
+  
+          <div class="row" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-6">
+              <div class="info-box mb-4">
+                <i class="bx bx-map"></i>
+                <h3>Our Address</h3>
+                <p>
+  Punjab Pakistan</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6">
+              <div class="info-box  mb-4">
+                <i class="bx bx-envelope"></i>
+                <h3>Email Us</h3>
+                <p></p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6">
+              <div class="info-box  mb-4">
+                <i class="bx bx-phone-call"></i>
+                <h3>Call Us</h3>
+                <p>+923441493060</p>
+              </div>
+            </div>
+  
+          </div>
+  
+          <div class="row" data-aos="fade-up" data-aos-delay="100">
+           <!--
+  
+            v1539943755621" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+  
+  
+  
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3432.175804001672!2d73.09191050040675!3d30.657177631573543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3922b7da49c8cb61%3A0x4a77144bd102aa47!2sAzaan%20Heights!5e0!3m2!1sen!2s!4v1623305952179!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  
+  
+            -->
+         
+            <div class="col-lg-6 ">
+  
+              <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3431.8897008716585!2d73.10824389999999!3d30.665234300000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3922b7c1ab0f5195%3A0x7e4f38f4f989ab2d!2sSyed%20Plaza%2C%20Sadman%20Town%20Sahiwal%2C%20Sahiwal%20District%2C%20Punjab%2057000!5e0!3m2!1sen!2s!4v1653120440708!5m2!1sen!2s" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+  
+            </div>
+  
+            <div class="col-lg-6">
+              <form action="{%  url 'contant' %}" method="POST"  role="form" class="">
+                {% csrf_token%}
+                <div class="form-row">
+                  <div class="col form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <div class="validate"></div>
+                  </div>
+                  <div class="col form-group">
+                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone no" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+
+                    <div class="validate"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="Subject" id="Subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" name="description" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <div class="validate"></div>
+                </div>
+                
+                <div class="text-center"><button class="btn btn-primary" type="submit">Send Message</button></div>
+              </form>
+              {%if messages %}
+              {%for message in  messages%}
+      
+                <p {% if message.tags %} class="alert alert-success  mt-1 mb-5" {% endif %}>{{message}}</p>
+              {%endfor%}
+      
+            {%endif%}
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Contact Section -->
+  
+    </main><!-- End #main -->
+    {% endblock main-content %}
